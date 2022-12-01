@@ -1,4 +1,4 @@
 
 export const jwtConstants = {
-    secret: 'axiobamusic',
+    secret: 'canadaLaptopJWT-adminS',
 };

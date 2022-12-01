@@ -4,8 +4,8 @@ import * as fs from "fs"
 import * as uuid from "uuid"
 
 export enum FileType{
-    AUDIO = "audio",
-    IMAGE = "image"
+    IMAGE = "image",
+    DOCUMENT = "document"
 }
 
 @Injectable()

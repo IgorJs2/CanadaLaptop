@@ -1,0 +1,347 @@
+
+.shadow_wrapper {
+    @apply w-full h-full overflow-hidden flex flex-col;
+    min-height: 48rem;
+}
+
+/*const ShadowWrapper = styled('div')`*/
+
+.form_position_wrapper{
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.35);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form_wrapper{
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.35);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    min-width: 320px;
+    height: 132px;
+    background-color: #1E1F21;
+    color: #DDDDDD;
+    box-shadow:unset;
+}
+
+
+
+
+
+.day_show_wrapper{
+    @apply flex-col;
+    display: flex;
+    flex-grow: 1;
+    border-top: 1px solid #464648;
+}
+
+.event_list_wrapper {
+    color: #DDDDDD;
+    flex-grow: 1;
+    margin-top: 8px;
+}
+
+.event_form_wrapper{
+    background-color: #27282A;
+    color: #DDDDDD;
+    width: 300px;
+    position: relative;
+    border-left: 1px solid #464648;
+}
+
+.no_event_msg{
+    color: #565759;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.scale_wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 4px;
+}
+
+.scale_cell_wrapper{
+    flex-grow: 1;
+    position: relative;
+    margin-left: 32px;
+}
+
+.scale_cell_wrapper:nth-last-child{
+    border-bottom: 1px solid #464648;
+}
+
+.scale_cell_time_wrapper{
+    position: absolute;
+    left: -26px;
+    top: -6px;
+    font-size: 8px;
+}
+
+.scale_cell_event_wrapper{
+    min-height: 16px;
+}
+
+.event_item_button{
+    position: relative;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 114px;
+    border: unset;
+    color: #DDDDDD;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background-color: #5d5f63;
+    border: 1px solid #5d5f63;
+    border-radius: 2px;
+    min-width: 50px;
+    width: unset;
+    margin-left: 4px;
+}
+
+.selecet_event_time_wrapper{
+    padding: 8px 14px;
+    border-bottom: 1px solid #464648;
+    display: flex;
+}
+
+.list_of_hours{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+    overflow-y: scroll;
+    color: #000;
+    position: absolute;
+    left: 2px;
+    background-color: rgb(239, 239, 239);
+}
+
+.position_relative{
+    position: relative;
+}
+
+.hours_button{
+    border: none;
+    background-color: unset;
+    cursor: pointer;
+}
+
+.grid_wrapper {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 1px;
+    background-color: #1E1F21
+    /*        ${props => props.isHeader ? '#1E1F21' : '#4D4C4D'};*/
+    /*${props => props.isHeader && `border-bottom: 1px solid #4D4C4D`}*/
+}
+
+.day_wrapper{
+    height: 31px;
+    width: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.current_day{
+    height: 100%;
+    width: 100%;
+    @apply bg-main-dark px-1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.current_day_datapicker{
+    height: 100%;
+    width: 100%;
+    @apply bg-main-dark px-1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.current_day_list{
+    height: 100%;
+    width: 100%;
+    @apply bg-main-dark p-4 rounded-2xl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.show_day_wrapper {
+    @apply flex justify-center
+}
+
+ul .event_list_wrapper{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+.event_list_item_wrapper{
+    @apply hover:opacity-30;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 2px;
+    margin-top: 4px;
+    display: flex;
+}
+
+
+
+.event_item_wrapper{
+    position: relative;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 114px;
+    border: unset;
+    color: #DDDDDD;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background-color: #5d5f63;
+    border: 1px solid #5d5f63;
+    border-radius: 2px;
+}
+
+.div_wrapper {
+    display: flex;
+    justify-content: space-between;
+    @apply rounded-t-2xl;
+    background-color: #1E1F21;
+    color: #DCDDDD;
+    padding: 16px;
+    position: relative;
+}
+
+.text_wrapper{
+    font-size: 32px;
+}
+
+.title_wrapper{
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.button_wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.button_center_wrapper{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.button_wrapper{
+    border: unset;
+    background-color: #27282A;
+    border: 1px solid #565759;
+    height: 20px;
+    border-radius: 4px;
+    color: #a4a6a9;
+    outline: unset;
+    cursor:pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_wrapper:nth-last-child{
+    margin-right: 2px;
+}
+
+.today_button{
+    font-weight: bold;
+}
+
+.cell_wrapper-24{
+    min-height: 24px;
+    min-width: 120px;
+    background-color: #27282A;
+    color: #DDDDDD;
+}
+
+.cell_wrapper-94{
+    min-height: 8rem;
+    min-width: 12rem;
+    background-color: #27282A;
+    color: #DDDDDD;
+}
+
+.cell_wrapper-list{
+    min-height: 8rem;
+    min-width: 12rem;
+    background-color: #27282A;
+    color: #DDDDDD;
+    @apply flex justify-start text-center p-2 border-2 border-main-dark
+}
+
+.cell_wrapper-datapicker{
+    background-color: #27282A;
+    color: #DDDDDD;
+}
+
+.cell_wrapper-datapicker:hover{
+    @apply transition-all bg-main-dark
+}
+
+.row_in_cell_end{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.event_body{
+    padding: 8px 14px;
+    font-size: .85rem;
+    width: 100%;
+    border: unset;
+    background-color: #1E1F21;
+    color: #DDDDDD;
+    outline: unset;
+    border-bottom: 1px solid #464648;
+    resize: none;
+    height: 60px;
+}
+

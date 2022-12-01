@@ -1,22 +1,26 @@
 import {Get, Injectable, Post} from '@nestjs/common';
-import {InjectModel} from "@nestjs/mongoose";
+import {InjectModel, Prop} from "@nestjs/mongoose";
 import {Model, ObjectId} from "mongoose";
-import {User, UserDocument} from "./schema/user.schema";
 import {CreateUserDto} from "./dto/create-user.dto";
 import * as bcrypt from "bcrypt"
+import {User} from "../_schemas/user/user.schema";
+import {UserModel} from "../_types/user/user";
+import * as mongoose from "mongoose";
+import {RoleModel} from "../_types/role/role";
 
 @Injectable()
 export class UserService {
-    constructor(@InjectModel(User.name) private UserModel: Model<UserDocument>) {
+    constructor(@InjectModel('user') private readonly UserModel:Model<UserModel>,
+                @InjectModel('role') private readonly RoleModel:Model<RoleModel>) {
     }
 
-    async create(dto: CreateUserDto): Promise<User | object> {
+    async create(dto: CreateUserDto): Promise<UserModel | object | string> {
         const password = await bcrypt.hash(dto.password, 4)
         const regexMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         let errors = []
         let fields = []
 
-        const Users = await this.UserModel.find({$or: [{email: dto.email}, {login: dto.login}]})
+        const Users = await this.UserModel.find({$or: [{login: dto.login}]})
 
         if (Users[0]) {
             errors.push("USER:This user already registered")
@@ -30,7 +34,7 @@ export class UserService {
             errors.push("PASSWORD:Password must have more than 5 symbols")
             fields.push("Password")
         }
-        if (!regexMail.test(dto.email)) {
+        if (!regexMail.test(dto.email) && dto.email !== "none") {
             errors.push("EMAIL:Invalid email")
             fields.push("Email")
         }
@@ -39,19 +43,36 @@ export class UserService {
             return {errors, fields}
         }
 
+        const role_check = await this.RoleModel.findOne({name: dto._role})
+
+        if(!role_check){
+            return "Role not find";
+        }
+        const time: Array<mongoose.Schema.Types.ObjectId> = []
+        const logs: Array<mongoose.Schema.Types.ObjectId> = []
+
         const user = await this.UserModel.create({
             login: dto.login,
+            full_name: dto.full_name,
+            type: dto.type,
+            mobild: dto.mobile,
             email: dto.email,
             password,
-            favorite: {tracks: [], albums: []}
+            _role: role_check._id,
+            _time: time,
+            _logs: logs,
         })
         return user
     }
 
-    async findUser(username: string): Promise<{ _id: ObjectId, login: string, password: string } | undefined> {
-        const user = await this.UserModel.findOne({login: username})
-        return {_id: user._id, login: user.login, password: user.password}
+    async findUser(username: string): Promise<UserModel> {
+        const user = await this.UserModel.findOne({login: username}).populate({path: "_role", populate: {path: "_permissions"}}).lean()
+        return user
     }
 
-
+    async getUsers(query: string): Promise<UserModel[]>{
+        const parsed_query = JSON.parse(query)
+        const user = await this.UserModel.find(parsed_query).populate("_role", { _id: 0, name: 1})
+        return user
+    }
 }

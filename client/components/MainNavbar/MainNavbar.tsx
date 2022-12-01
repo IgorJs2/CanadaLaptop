@@ -1,53 +1,47 @@
-import React, {FC, useState} from 'react';
-import {Button, Navbar} from "react-daisyui";
-import Link from "next/link";
-import AuthModal from "../AuthModal/AuthModal";
+import React, {FC, useEffect, useState} from 'react';
 import UserWindow from "../UserWindow/UserWindow";
-import {profile} from "../UserWindow/UserWindow"
-import {getCookie} from "cookies-next";
-import axios from "axios";
-import {GetServerSideProps} from "next";
+import SideBar from "../Sidebar/SideBar";
+import {openShortSidebarHandler} from "../Sidebar/handlers/OpenSidebarHandler";
+import {useTypeSelector} from "../../hooks/useTypeSelector";
+import {ILaptopModelFilterData} from "../Sidebar/childrens/filters/Sidebar_ILaptopModel";
+import {IPartModelFilterData} from "../Sidebar/childrens/filters/Sidebar_IPartModel";
+import NotificationWindow from "../NotificationWindow/NotificationWindow";
+import MailWindow from "../MailWindow/MailWindow";
 
-type MainNavbarT = {
-    token: string,
-    profile?: profile
+
+interface MainNavbarProps {
+    filterSubmitHandler?: (data: ILaptopModelFilterData | IPartModelFilterData) => void,
 }
 
-const MainNavbar: FC<MainNavbarT> = ({token, profile}) => {
-    const [visible, setVisible] = useState<boolean>(false)
+const MainNavbar: FC<MainNavbarProps> = ({filterSubmitHandler}) => {
 
-    const toggleVisible = () => {
-        setVisible(!visible)
-    }
+    const {GlobalStateInfo} = useTypeSelector(state => state.global)
+    const {currentUser} = useTypeSelector(state => state.user)
 
     return (
-        <Navbar className="bg-dark_blue">
-            <Navbar.Start className="px-2 mx-2">
-                <span className="text-lg font-bold text-white">AxiobaMusic</span>
-            </Navbar.Start>
+        <div className="bg-main-dark h-20 flex flex-row justify-center items-center text-center">
+            <div className="flex px-2 mx-2 justify-center items-center text-center">
+                <SideBar filterType={GlobalStateInfo.filterType} submitHandler={filterSubmitHandler}></SideBar>
+                <i className='bx bx-list-ul text-white text-2xl my-2 p-2 hover:bg-second-dark rounded-2xl transition-all'
+                   onClick={(e) => {
+                       openShortSidebarHandler(e)
+                   }}></i>
+            </div>
 
-            <Navbar.Center className="px-2 mx-2">
+            <div className="flex-1 px-2 mx-2">
                 <div className="flex items-stretch">
-                    <Link href="/tracks"><a className="btn btn-ghost btn-sm rounded-btn text-white">Tracks</a></Link>
-                    <Link href="/albums"><a className="btn btn-ghost btn-sm rounded-btn text-white">Albums</a></Link>
-                    <Link href="/favorites"><a
-                        className="btn btn-ghost btn-sm rounded-btn text-white">Favorites</a></Link>
+
                 </div>
-            </Navbar.Center>
+            </div>
 
-            {token ? (
-                    <Navbar.End className="px-2 mx-2">
-                        <UserWindow profile={profile}/>
-                    </Navbar.End>
-                ) :
-                (
-                    <Navbar.End className="px-2 mx-2">
-                        <Button onClick={toggleVisible}>Login</Button>
-                    </Navbar.End>
-                )}
+            <div className="px-2 mx-2 flex flex-row justify-center items-center text-center">
+                <MailWindow />
+                <NotificationWindow />
+                <UserWindow profile={currentUser}/>
+            </div>
 
-            <AuthModal visible={visible} onClick={toggleVisible}/>
-        </Navbar>
+        </div>
+
     )
 };
 

@@ -17,9 +17,9 @@ const CustomSelect: FC<CustomSelectT> = ({options, placeholder, placeholder_imag
         const choosedElement = document.querySelectorAll(".select_element")
         choosedElement.forEach((e) => {
             if (e.getAttribute("data-label") === CurrentSelectValue.toString()) {
-                e.classList.add("bg-light_blue")
+                e.classList.add("bg-light_main-dark")
             } else {
-                e.classList.remove("bg-light_blue")
+                e.classList.remove("bg-light_main-dark")
             }
         })
     }, [CurrentSelectValue])
@@ -47,16 +47,16 @@ const CustomSelect: FC<CustomSelectT> = ({options, placeholder, placeholder_imag
     return (
         <div className="w-3/6 h-15 mr-auto ">
             <div
-                className="m-auto pt-3 pb-3 pl-4 pr-4 w-full h-fit text-white text-3xl rounded-3xl flex flex-row text-center justify-center items-center border-4 border-blue"
+                className="m-auto pt-3 pb-3 pl-4 pr-4 w-full h-fit text-white text-3xl rounded-3xl flex flex-row text-center justify-center items-center border-4 border-main-dark"
                 onClick={openSelectHandler}>
                 <span className="m-2">{CurrentSelectValue}</span>
                 {placeholder_image === "" ? (<></>) : (<span className="m-2">{placeholder_image}</span>)}
             </div>
-            <div className="border-blue border-4 rounded-3xl none relative z-10 absolute flex flex-row" id="variants">
+            <div className="border-main-dark border-4 rounded-3xl none relative z-10 absolute flex flex-row" id="variants">
                 {options.map((elem) => {
                     return (
                         <div data-name={elem.name} data-value={elem.value} data-label={elem.label}
-                             className="select_element cursor-pointer m-auto pt-3 pb-3 pl-4 pr-4 w-full h-fit text-white text-2xll rounded-3xl bg-opacity-100 flex flex-row text-center justify-center items-center hover:bg-light_blue transition-all"
+                             className="select_element cursor-pointer m-auto pt-3 pb-3 pl-4 pr-4 w-full h-fit text-white text-2xll rounded-3xl bg-opacity-100 flex flex-row text-center justify-center items-center hover:bg-light_main-dark transition-all"
                              onClick={selectHandler}>
                             <span data-name={elem.name} data-value={elem.value} data-label={elem.label}
                                   className="m-2">{elem.label}</span>
