@@ -16,7 +16,7 @@ const Mail: FC<TMailProps> = ({mail, onClick}) => {
             </div>
             <div className="w-8/12 flex justify-center text-center items-center pointer-events-none">
                 <i className='bx bxs-user-circle bg-main-dark text-3xl'></i>
-                <div className="mx-2">{mail.from}</div>
+                <div className="mx-2">{mail.from.full_name}</div>
             </div>
             <div className="w-2/12 pointer-events-none h-full flex-row justify-center items-center text-center">
                 {

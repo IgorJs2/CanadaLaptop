@@ -20,6 +20,7 @@ const initialState: PartsState = {
         _createdBy: {full_name: ""},
         _createdAt: "",
     },
+    PartList: [],
     Parts: [],
     NeedReturnParts: [],
     error: ''
@@ -31,6 +32,8 @@ export const PartReducer = (state = initialState, action: PartsAction): PartsSta
             return {...state, error: action.payload}
         case PartsActionTypes.FETCH_PARTS:
             return {...state, Parts: action.payload}
+        case PartsActionTypes.FETCH_PART_LIST_ITEMS:
+            return {...state, PartList: action.payload}
         case PartsActionTypes.FETCH_PART_INFO:
             return {...state, PartInfo: action.payload}
         default:

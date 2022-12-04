@@ -34,8 +34,8 @@ const OrdersItem: FC<IOrdersItem> = ({handleClick, isItemSelected, item, labelId
                     }}
                 />
             </TableCell>
-            <TableCell align="left">{item.laptop_id.searchID}</TableCell>
-            <TableCell align="left">{item.part_id.searchID}</TableCell>
+            {/*<TableCell align="left">{item.laptop_id.searchID}</TableCell>*/}
+            {/*<TableCell align="left">{item.part_id.searchID}</TableCell>*/}
             <TableCell align="left">{item.customerName}</TableCell>
             <TableCell align="left">{item.customerShippingAdress}</TableCell>
             <TableCell align="left">{item.tracknumber}</TableCell>

@@ -1,4 +1,16 @@
-import {Body, Controller, Delete, Get, Post, Put, Query, Req, UseGuards} from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Delete,
+    Get,
+    HttpException,
+    HttpStatus,
+    Post,
+    Put,
+    Query,
+    Req,
+    UseGuards
+} from '@nestjs/common';
 import {CreateChatDto} from "../chat/dto/create-chat.dto";
 import {TSettings} from "../_types/chat/settings";
 import {CreateMailDto} from "./dto/create-mail.dto";
@@ -19,7 +31,11 @@ export class MailController {
     @UseGuards(TypesGuard)
     @Get("/user")
     async get_user_mail(@Req() request) {
-        return await this.MailService.get_user_mail(request.user)
+        const data = await this.MailService.get_user_mail(request.user)
+        if(typeof data === "string"){
+            throw new HttpException(data, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return data
     }
 
     @UseGuards(JwtAuthGuard)

@@ -7,11 +7,11 @@ export type OrderModelDocument = Order & Document;
 @Schema()
 export class Order {
  
-@Prop({type: mongoose.Schema.Types.ObjectId, ref: "laptop"})
- laptop_id:  mongoose.Schema.Types.ObjectId
+@Prop({type: String, ref: "laptop"})
+ laptop_id:string
  
-@Prop({type: mongoose.Schema.Types.ObjectId, ref: "part"} )
- part_id:  mongoose.Schema.Types.ObjectId
+@Prop({type: String, ref: "part"} )
+ part_id:  string
  
 @Prop() 
  customerName: string 

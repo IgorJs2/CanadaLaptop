@@ -44,7 +44,7 @@ const Parts = () => {
 
     return (
         <MainLayouts active={2}>
-            <div className="w-11.5/12 ml-20  h-full overflow-x-hidden">
+            <div className="centralized_table_block">
                 <div className="w-11/12 p-2 mx-auto mt-16 h-fit pb-32 rounded-box bg-main-dark rounded-2xl">
                     <div className="w-full mb-8 flex flex-row">
                         <div className="flex w-8/12 text-white text-2xl ml-20 pt-16">Parts list</div>

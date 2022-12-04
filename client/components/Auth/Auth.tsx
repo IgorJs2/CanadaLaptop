@@ -49,15 +49,14 @@ const AuthComponent = () => {
     }
 
     return (
-        <>
-
+        <div className="w-full hfull">
             <div className="w-full flex justify-start items-center m-4">
                 <h2>Canada Laptops</h2>
             </div>
 
             <CustomAlert />
 
-            <div className="w-full mt-96 flex justify-center items-center ">
+            <div className="w-full hfull flex justify-center items-center ">
                 <div className="w-3/12 h-fit flex flex-col justify-center items-center text-center bg-main-dark rounded-2xl">
                     <h1 className="mt-10">Authorize in System</h1>
                     <div className="w-full h-fit flex flex-row justify-center items-center text-center mt-4">
@@ -70,7 +69,7 @@ const AuthComponent = () => {
                 </div>
             </div>
 
-        </>
+        </div>
     )
 };
 

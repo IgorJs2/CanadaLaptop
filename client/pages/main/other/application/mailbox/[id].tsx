@@ -20,10 +20,10 @@ const MailBoxId = () => {
                 <div className="w-11/12 h-fit bg-main-dark h-96 rounded-box ml-5">
                     <div className="w-full flex flex-row justify-center items-center">
                         <div className="w-4/12 flex-row justify-start p-4">
-                            <div className="w-full h-full text-white flex flex-col justify-start items-start text-2xl">
-                                From: {MailInfo.from.full_name}
-                                <div className="w-full h-full text-white text-2xs">To: {MailInfo.to.full_name}</div>
-                            </div>
+                            {/*<div className="w-full h-full text-white flex flex-col justify-start items-start text-2xl">*/}
+                            {/*    From: {MailInfo.from.full_name}*/}
+                            {/*    <div className="w-full h-full text-white text-2xs">To: {MailInfo.to.full_name}</div>*/}
+                            {/*</div>*/}
                         </div>
                         <div className="w-8/12 flex-row justify-center items-center  p-4">
                             <div className="flex text-white justify-end items-end w-full text-2xl text-end pr-2">
@@ -40,9 +40,9 @@ const MailBoxId = () => {
 
                     <div  className="text-white flex w-full justify-end p-4">
                         {/*@ts-ignore*/}
-                        <Button color="info" variant="outlined" className="text-white" onClick={() => router.push(
-                            { pathname: "send", query: { _id: MailInfo._id, reply_mail: MailInfo.short_name, to: MailInfo.from.full_name} })}
-                        >Reply</Button>
+                        {/*<Button color="info" variant="outlined" className="text-white" onClick={() => router.push(*/}
+                        {/*    { pathname: "send", query: { _id: MailInfo._id, reply_mail: MailInfo.short_name, to: MailInfo.from.full_name} })}*/}
+                        {/*>Reply</Button>*/}
                     </div>
                 </div>
 

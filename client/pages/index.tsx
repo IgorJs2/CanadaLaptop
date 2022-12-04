@@ -8,9 +8,9 @@ import {fetchCurrentUser} from "../store/action-creators/user";
 const index: NextPage = () => {
 
     return (
-        <>
+        <div className="w-full h-full">
            <AuthComponent/>
-        </>
+        </div>
     )
 }
 

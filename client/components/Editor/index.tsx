@@ -6,14 +6,14 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {height} from "@mui/system";
 
-class EditorComponent extends Component {
+const EditorComponent = () => {
 
-    render() {
         return (
             <>
                 <CKEditor
                     editor={ ClassicEditor }
-                    data="<p>Hello from CKEditor 5!</p>"
+                    data=""
+                    className="w-11/12 mx-auto"
                     // onReady={ editor: => {
                     //     // You can store the "editor" and use when it is needed.
                     //     console.log( 'Editor is ready to use!', editor );
@@ -31,7 +31,6 @@ class EditorComponent extends Component {
                 />
             </>
         );
-    }
 }
 
 export default EditorComponent;

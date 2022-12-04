@@ -3,6 +3,7 @@ import {PartModelAction, PartModelActionTypes, PartModelState} from "../../types
 
 const initialState: PartModelState = {
     PartModels: [],
+    PartModelsList: [],
     PartModelInfo: {
         _id: "",
         searchID: "",
@@ -10,7 +11,7 @@ const initialState: PartModelState = {
         price: 0,
         profit: 0,
         amount_paid: 0,
-        _laptop_modelID: "",
+        _laptop_model_id: {searchID: ""},
         part_number: "",
         mpn: "",
     },
@@ -23,6 +24,8 @@ export const PartModelsReducer = (state = initialState, action: PartModelAction)
             return {...state, error: action.payload}
         case PartModelActionTypes.FETCH_PARTMODEL_INFO:
             return {...state, PartModelInfo: action.payload}
+        case PartModelActionTypes.FETCH_PARTMODEL_LIST_ITEMS:
+            return {...state, PartModelsList: action.payload}
         case PartModelActionTypes.FETCH_PARTMODELS:
             return {...state, PartModels: action.payload}
         default:

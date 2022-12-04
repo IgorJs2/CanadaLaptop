@@ -19,6 +19,25 @@ export class PartModelsController {
         return await this.PartsModelsService.getPartsModels(count, offset)
     }
 
+    @UseGuards(JwtAuthGuard)
+    @Types("Admin", "Worker", "Seller")
+    @UseGuards(TypesGuard)
+    @Get("by_id")
+    async getPartModelsById (@Query("id_array") id_array: string[]) {
+        const response = await this.PartsModelsService.getPartModelsById(id_array)
+        return response
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Types("Admin", "Worker", "Seller")
+    @UseGuards(TypesGuard)
+    @Get("list")
+    async getPartModelList (@Query("filter") filter: string) {
+        const response = await this.PartsModelsService.getPartModelList(filter)
+        return response
+    }
+
+
     @Types("Admin", "Worker", "Seller")
     @UseGuards(TypesGuard)
     @Get("/filtered/")

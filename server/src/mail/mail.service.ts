@@ -19,13 +19,15 @@ export class MailService {
                 return "User not found"
             }
 
-            const data = await this.MailModel.find({to: user._id.toString()}).populate({path: "to", select: {_id: 0, full_name: 1}}).populate({path: "from", select: {_id: 0, full_name: 1}})
+            const data = await this.MailModel.find({to: user._id.toString()})
+                .populate({path: "to", select: {_id: 0, full_name: 1, avatar: 1}})
+                .populate({path: "from", select: {_id: 0, full_name: 1, avatar: 1}})
             console.log(data[1])
             return data
         } catch (e) {
           console.log(e)
         }
-    }
+}
 
     async get_sended_mail(user: UserModel): Promise<MailModel[] | string> {
         try {

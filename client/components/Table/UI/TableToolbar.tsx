@@ -55,7 +55,6 @@ export const TableToolbar: FC<ITableToolbarProps> = ({numSelected, filterType, s
                     id="tableTitle"
                     component="div"
                 >
-                    Table
                 </Typography>
             )}
             {numSelected > 0 ? (

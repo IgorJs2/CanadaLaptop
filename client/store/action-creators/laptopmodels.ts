@@ -206,35 +206,3 @@ export const fetchLaptopModelEditFromList = (new_item_array: ILaptopModelEditDat
         }
     }
 }
-
-// export const fetchLaptopModelInfo = () => {
-//     return async (dispatch: Dispatch<LaptopModelAction>, getState: any) => {
-//
-//         const {user} = getState()
-//         const {currentUser} = user
-//         const token_ = currentUser.token
-//
-//         try {
-//             const config = {
-//                 "headers": {
-//                     "Authorization": "Bearer" + " " + token_
-//                 },
-//             };
-//             const response = await axios.get(`http://localhost:5000/laptopmodels`, config)
-//             dispatch({type: LaptopModelActionTypes.FETCH_LAPTOPMODELS, payload: response.data})
-//         } catch (e: any | AxiosError) {
-//             console.log(e)
-//             if (e && e.response.status == 401) {
-//                 dispatch({
-//                     type: LaptopModelActionTypes.FETCH_LAPTOPMODEL_ERROR,
-//                     payload: e.response.data.message
-//                 })
-//                 return 0
-//             }
-//             dispatch({
-//                 type: LaptopModelActionTypes.FETCH_LAPTOPMODEL_ERROR,
-//                 payload: "Error when loading Laptop models"
-//             })
-//         }
-//     }
-// }

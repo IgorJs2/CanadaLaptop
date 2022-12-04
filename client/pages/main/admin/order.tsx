@@ -6,22 +6,25 @@ import {wrapper} from "../../../store";
 import {getCookie} from "cookies-next";
 import {fetchCurrentUser} from "../../../store/action-creators/user";
 import {fetchOrders} from "../../../store/action-creators/order";
+import {item_types} from "../../../constants/global_const";
 
 const Order = () => {
+    const searchHandler = () => {
+
+    }
+
     return (
         <MainLayouts active={2}>
-            <div className="w-11.5/12 ml-20  h-full overflow-x-hidden">
-                <div className="w-full text-white text-3xl ml-20 mt-16">Dashboard</div>
-
-                <div className="w-11/12 p-2 mx-auto mt-16 h-fit pb-32 rounded-box bg-main-dark">
+            <div className="centralized_table_block">
+                <div className="w-11/12 p-2 mx-auto mt-16 h-fit pb-32 rounded-box bg-main-dark rounded-2xl">
                     <div className="w-full mb-8 flex flex-row">
                         <div className="flex w-8/12 text-white text-2xl ml-20 pt-16">Order list</div>
                         <div className="w-4/12 pt-16 flex justify-end">
                             <TextField type="text" placeholder="Search" className="mx-2 bg-main-dark-2 border-none"/>
-                            <Button className="bg-green mx-4 w-24">Search</Button>
+                            <Button className="mx-4 w-24" variant="outlined" color="success" onClick={searchHandler}>Search</Button>
                         </div>
                     </div>
-                    <CustomTable />
+                    <CustomTable  item_type={item_types.Order}/>
                 </div>
             </div>
         </MainLayouts>

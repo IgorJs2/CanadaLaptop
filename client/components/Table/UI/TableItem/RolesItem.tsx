@@ -3,7 +3,7 @@ import TableCell from "@mui/material/TableCell";
 import Checkbox from "@mui/material/Checkbox";
 import TableRow from "@mui/material/TableRow";
 import {
-    Avatar,
+    Avatar, Button, Divider,
     ImageList,
     ImageListItem,
     List,
@@ -46,12 +46,19 @@ const RolesItem: FC<IRolesItem> = ({handleClick, isItemSelected, item, labelId})
                 />
             </TableCell>
             <TableCell align="left">{item.name}</TableCell>
-            <TableCell align="left">{item._permissions}</TableCell>
-            {item.active ? (
-                <TableCell align="left"><div className="bg-green rounded-2xl">Active</div></TableCell>
-            ) : (
-                <TableCell align="left"><div className="bg-red rounded-2xl">Not-Active</div></TableCell>
-            )}
+            <TableCell align="left">{item._permissions.map((e, i) => i !== item._permissions.length - 1
+            ? <>{e.permission}<Divider orientation="vertical" flexItem/></> : <>{e.permission}</>)}</TableCell>
+            <TableCell align="left">
+                {item.active ?
+                    (
+                        <Button variant='outlined' color="success">Active</Button>
+                    )
+                    :
+                    (
+                        <Button variant='outlined' color="error">DisActived</Button>
+                    )
+                }
+            </TableCell>
         </TableRow>
     );
 };

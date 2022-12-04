@@ -3,8 +3,8 @@ import {IUser} from "./user";
 
 export interface IMail {
     _id: string,
-    from: IUser,
-    to: IUser,
+    from: { avatar: string, full_name: string },
+    to: { avatar: string, full_name: string },
     message: string,
     checked: boolean,
     favourite: boolean,
@@ -20,14 +20,14 @@ export interface MailState {
 }
 
 export enum MailActionTypes {
-    FETCH_MAIL = 'FETCH_MAIL',
+    FETCH_MAILS = 'FETCH_MAILS',
     FETCH_MAIL_INFO = "FETCH_MAIL_INFO",
     FETCH_SEND_MAIL = "FETCH_SEND_MAIL",
     FETCH_MAIL_ERROR = 'FETCH_MAIL_ERROR',
 }
 
 interface FetchMailAction {
-    type: MailActionTypes.FETCH_MAIL;
+    type: MailActionTypes.FETCH_MAILS;
     payload: IMail[]
 }
 

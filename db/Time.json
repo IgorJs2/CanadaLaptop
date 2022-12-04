@@ -1,0 +1,10 @@
+[{"_id":{"$oid":"634f426cfc13ae17480000e0"},"user":"634dd919fc13ae3eb10002ac","date_start":"1658195495000","date_finish":"1657300195000","total":null},
+{"_id":{"$oid":"634f426cfc13ae17480000e1"},"user":"634dd919fc13ae3eb10002a8","date_start":"1661463073000","date_finish":"1655013855000","total":null},
+{"_id":{"$oid":"634f426cfc13ae17480000e2"},"user":"634dd919fc13ae3eb10002ac","date_start":"1654081130000","date_finish":"1661834100000","total":null},
+{"_id":{"$oid":"634f426cfc13ae17480000e3"},"user":"634dd919fc13ae3eb10002ac","date_start":"1645699977000","date_finish":"1664795024000","total":null},
+{"_id":{"$oid":"634f426cfc13ae17480000e4"},"user":"634dd919fc13ae3eb10002ac","date_start":"1657479269000","date_finish":"1658754312000","total":null},
+{"_id":{"$oid":"634f426cfc13ae17480000e5"},"user":"634dd919fc13ae3eb10002a9","date_start":"1651820202000","date_finish":"1661463693000","total":null},
+{"_id":{"$oid":"634f426cfc13ae17480000e6"},"user":"634dd919fc13ae3eb10002a8","date_start":"1650465311000","date_finish":"1658411355000","total":null},
+{"_id":{"$oid":"634f426cfc13ae17480000e7"},"user":"634dd919fc13ae3eb10002a9","date_start":"1640645334000","date_finish":"1656487474000","total":null},
+{"_id":{"$oid":"634f426cfc13ae17480000e8"},"user":"634dd919fc13ae3eb10002a8","date_start":"1640278043000","date_finish":"1661571814000","total":null},
+{"_id":{"$oid":"634f426cfc13ae17480000e9"},"user":"634dd919fc13ae3eb10002a8","date_start":"1664319318000","date_finish":"1661385201000","total":null}]

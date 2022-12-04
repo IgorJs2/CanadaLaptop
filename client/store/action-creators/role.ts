@@ -29,8 +29,8 @@ export const fetchRoles = (token: string) => {
                     "Authorization": "Bearer" + " " + token
                 }
             };
-            const response = await axios.get('http://localhost:5000/.../profile', config)
-            dispatch({type: RoleActionTypes.FETCH_ROLE, payload: response.data})
+            const response = await axios.get('http://localhost:5000/role', config)
+            dispatch({type: RoleActionTypes.FETCH_ROLES, payload: response.data})
         } catch (e) {
             dispatch({
                 type: RoleActionTypes.FETCH_ROLE_ERROR,

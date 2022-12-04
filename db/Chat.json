@@ -1,0 +1,87 @@
+[
+  {
+    "_id": {
+      "$oid": "634f4037fc13ae174100014b"
+    },
+    "type": "Single",
+    "first_user": "634c778ffc13ae1d550003f7",
+    "second_user": "634c778ffc13ae1d550003f8",
+    "messages": [],
+    "users": [
+      "634dd919fc13ae3eb10002a8",
+      "634dd919fc13ae3eb10002a8"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "634f4037fc13ae174100014c"
+    },
+    "type": "Group",
+    "first_user": "634c778ffc13ae1d550003f9",
+    "second_user": "634c778ffc13ae1d550003f8",
+    "messages": [],
+    "users": [
+      "634dd919fc13ae3eb10002a9",
+      "634c778ffc13ae1d550003f8",
+      "634c778ffc13ae1d550003f7"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "634f4037fc13ae174100014d"
+    },
+    "type": "Single",
+    "first_user": "634c778ffc13ae1d550003f9",
+    "second_user": "634c778ffc13ae1d550003fa",
+    "messages": [],
+    "users": [
+      "634c778ffc13ae1d550003f9",
+      "634c778ffc13ae1d550003fa"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "634f4037fc13ae174100014e"
+    },
+    "type": "Group",
+    "first_user": "634dd919fc13ae3eb10002a8",
+    "second_user": "634c778ffc13ae1d550003f7",
+    "messages": [],
+    "users": [
+      "634c778ffc13ae1d550003f7",
+      "634c778ffc13ae1d550003f8",
+      "634c778ffc13ae1d550003f9",
+      "634c778ffc13ae1d550003fa"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "634f4037fc13ae174100014f"
+    },
+    "type": "Single",
+    "first_user": "634c778ffc13ae1d550003fb",
+    "second_user": "634c778ffc13ae1d550003fc",
+    "messages": [],
+    "users": [
+      "634c778ffc13ae1d550003fb",
+      "634c778ffc13ae1d550003fc"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "634f4037fc13ae1741000150"
+    },
+    "type": "Group",
+    "first_user": "634dd919fc13ae3eb10002ac",
+    "second_user": "634dd919fc13ae3eb10002ac",
+    "messages": [],
+    "users": [
+      "634c778ffc13ae1d550003f7",
+      "634c778ffc13ae1d550003f8",
+      "634c778ffc13ae1d550003f9",
+      "634c778ffc13ae1d550003fa",
+      "634c778ffc13ae1d550003fb",
+      "634c778ffc13ae1d550003fc"
+    ]
+  }
+]

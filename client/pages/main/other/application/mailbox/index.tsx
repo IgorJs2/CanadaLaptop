@@ -1,13 +1,13 @@
 import React, {MouseEvent, useEffect, useState} from 'react';
-import MainLayouts from "../../../../layouts/MainLayout";
-import {useTypeSelector} from "../../../../hooks/useTypeSelector";
-import {wrapper} from "../../../../store";
+import MainLayouts from "../../../../../layouts/MainLayout";
+import {useTypeSelector} from "../../../../../hooks/useTypeSelector";
+import {wrapper} from "../../../../../store";
 import {getCookie} from "cookies-next";
-import {fetchCurrentUser} from "../../../../store/action-creators/user";
-import {fetchFilter, fetchFilterType} from "../../../../store/action-creators/global";
-import {fetchPriorityLaptopModels} from "../../../../store/action-creators/laptopmodels";
-import {useAction} from "../../../../hooks/useAction";
-import {fetchMail} from "../../../../store/action-creators/mail";
+import {fetchCurrentUser} from "../../../../../store/action-creators/user";
+import {fetchFilter, fetchFilterType} from "../../../../../store/action-creators/global";
+import {fetchPriorityLaptopModels} from "../../../../../store/action-creators/laptopmodels";
+import {useAction} from "../../../../../hooks/useAction";
+import {fetchMail} from "../../../../../store/action-creators/mail";
 import {Badge, Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import InboxIcon from '@mui/icons-material/Inbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
@@ -16,10 +16,10 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import SendIcon from '@mui/icons-material/Send';
 import {useRouter} from "next/router";
-import MailList from "../../../../components/MailList";
+import MailList from "../../../../../components/MailList";
 
 
-const Mailbox = () => {
+const Index = () => {
 
     const {Mails} = useTypeSelector(state => state.mail)
     const {GlobalStateInfo} = useTypeSelector(state => state.global)
@@ -30,10 +30,16 @@ const Mailbox = () => {
         router.push({pathname: "mailbox/send"})
     }
 
+    const {currentUser} = useTypeSelector(state => state.user)
+    const {fetchMail} = useAction()
+    useEffect(() => {
+        fetchMail(currentUser.token)
+    }, [])
+
     return (
        <>
            <MainLayouts active={1}>
-               <div className="w-full h-full my-10 mx-auto flex flex-row ml-32 mt-48">
+               <div className="centralized_block">
                    <div className="w-3/12 bg-main-dark h-fit pb-4 rounded-box mr-5 rounded-2xl">
                        <div className="w-11/12 mx-auto mt-4 text-center text-white">
                            <div className="w-full h-full text-white flex flex-col justify-center items-center">
@@ -85,7 +91,7 @@ const Mailbox = () => {
                            </div>
                        </div>
                    </div>
-                   <div className="w-8/12 h-fit bg-main-dark rounded-box ml-5 rounded-2xl">
+                   <div className="second_block">
                         <MailList />
                    </div>
                </div>
@@ -95,7 +101,7 @@ const Mailbox = () => {
     );
 };
 
-export default Mailbox;
+export default Index;
 
 export const getServerSideProps = wrapper.getServerSideProps((store: any) => async ({req, res}) => {
     try {
@@ -111,9 +117,12 @@ export const getServerSideProps = wrapper.getServerSideProps((store: any) => asy
             }
         }
 
+        const {page, count} = store.getState().global.GlobalStateInfo
+
         await store.dispatch(fetchCurrentUser(token))
-        await store.dispatch(fetchMail(token))
-        await store.dispatch(fetchFilterType("MailFilter"))
+        // await store.dispatch(fetchMail(token))
+        await store.dispatch(fetchFilter(token, count, "mail", false, {}))
+
 
         return {props: {}}
     } catch (e) {

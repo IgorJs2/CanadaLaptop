@@ -2,30 +2,17 @@ import React, {FC} from 'react';
 import TableCell from "@mui/material/TableCell";
 import Checkbox from "@mui/material/Checkbox";
 import TableRow from "@mui/material/TableRow";
-import {
-    Avatar,
-    ImageList,
-    ImageListItem,
-    List,
-    ListItem,
-    ListItemText,
-    MenuItem,
-    OutlinedInput,
-    Select
-} from '@mui/material';
-import {MenuProps} from "../../const";
-import {IMail} from "../../../../types/mail";
+import {IPermission} from "../../../../types/permission";
+import {Button} from "@mui/material";
 
-interface IMailsItem {
+interface IPermissionsItem {
     handleClick: (event: React.MouseEvent<unknown>, name: string) => void,
     isItemSelected: boolean,
-    item: IMail,
+    item: IPermission,
     labelId: string
 }
 
-const MailsItem: FC<IMailsItem> = ({handleClick, isItemSelected, item, labelId}) => {
-
-    console.log(item)
+const MailsItem: FC<IPermissionsItem> = ({handleClick, isItemSelected, item, labelId}) => {
 
     return (
         <TableRow
@@ -46,22 +33,18 @@ const MailsItem: FC<IMailsItem> = ({handleClick, isItemSelected, item, labelId})
                     }}
                 />
             </TableCell>
-            <TableCell
-                component="th"
-                id={labelId}
-                scope="row"
-                padding="normal"
-            >
-                <Avatar
-                    variant="rounded"
-                    src={`${item.from.avatar}`}
-                    className="ml-14 mb-2"
-                />
-               {item.from.full_name}
+            <TableCell align="left">{item.permission}</TableCell>
+            <TableCell align="left">
+                {item.active ?
+                    (
+                        <Button variant='outlined' color="success">Active</Button>
+                    )
+                :
+                        (
+                            <Button variant='outlined' color="error">DisActived</Button>
+                        )
+                }
             </TableCell>
-            <TableCell align="left">{item.short_name}</TableCell>
-            <TableCell align="left">{item.message.length > 12 ? item.message.slice(0, 10) + "..." : item.message}</TableCell>
-            <TableCell align="left">{item.date || "12.09"}</TableCell>
         </TableRow>
     );
 };

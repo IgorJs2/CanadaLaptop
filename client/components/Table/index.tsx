@@ -170,6 +170,7 @@ const CustomTable: FC<ICustomTableProps> = ({item_type}) => {
                               redirectEditPage={redirectEditPageHandler}/>
                 <TableContainer>
                     <Table
+                        stickyHeader
                         sx={{minWidth: 750}}
                         aria-labelledby="tableTitle"
                         size={dense ? 'small' : 'medium'}
@@ -182,7 +183,7 @@ const CustomTable: FC<ICustomTableProps> = ({item_type}) => {
                             onRequestSort={handleRequestSort}
                             rowCount={TableItemsArray.length}
                             headCells={Cells}/>
-                        <TableBody>
+                        <TableBody className="overflow-x-scroll">
                             {/*Add new table types here*/}
                             <TableItems isPartModels={isPartModels} isParts={isPart} isLaptop={isLaptops} isMail={isMails} isLaptopModels={isLaptopModels} isPermission={isPermissions}
                                         isRole={isRoles} isUser={isUsers} isInvoice={isInvoices} isOrder={isOrders} selected={selected} setSelected={setSelected} dense={dense}/>

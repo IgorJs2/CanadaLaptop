@@ -5,6 +5,7 @@ import {CreatePartsModelsDto} from "./dto/create-partmodels.dto";
 import {GetPartModelsDto, ProfitByModelPartModelsDto} from "./dto/custom-partmodels.dto";
 import {PartmodelModel} from "../_types/partmodel/partmodel";
 import {clearFilterObject} from "../laptopmodels/helpers/clearFilterObject";
+import {LaptopmodelListItem, LaptopmodelModel} from "../_types/laptopmodel/laptopmodel";
 
 @Injectable()
 export class PartModelsService {
@@ -20,6 +21,30 @@ export class PartModelsService {
             return PartsModels
         } catch (e) {
             return "Error when try to get Parts Models please try again!"
+        }
+    }
+
+    async getPartModelsById(id_array: string[]): Promise<PartmodelModel[] | string> {
+        try {
+            const PartModels = await this.PartsModelsModel.find({ _id : { $in : id_array } })
+            return PartModels
+        } catch
+            (e) {
+            console.log(e)
+            return "Error when try to get filtered PartModelss please try again!"
+        }
+    }
+
+    async getPartModelList(filters): Promise<PartmodelModel[] | string> {
+        try {
+            const parsed_filters = JSON.parse(filters)
+            const filter = await clearFilterObject({...parsed_filters})
+            const PartModels = await this.PartsModelsModel.find(filter).select({_id: 1, searchID: 1, name: 1})
+            return PartModels
+        } catch
+            (e) {
+            console.log(e)
+            return "Error when try to get filtered PartModelss please try again!"
         }
     }
 

@@ -13,6 +13,8 @@ import {
     OutlinedInput,
     Select
 } from '@mui/material';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import GradeIcon from '@mui/icons-material/Grade';
 import {MenuProps} from "../../const";
 import {IMail} from "../../../../types/mail";
 
@@ -25,7 +27,8 @@ interface IMailsItem {
 
 const MailsItem: FC<IMailsItem> = ({handleClick, isItemSelected, item, labelId}) => {
 
-    console.log(item)
+    const date = new Date(+item.date).toISOString().split('T')[0]
+
 
     return (
         <TableRow
@@ -51,17 +54,31 @@ const MailsItem: FC<IMailsItem> = ({handleClick, isItemSelected, item, labelId})
                 id={labelId}
                 scope="row"
                 padding="normal"
+                className="flex flex-row"
             >
                 <Avatar
                     variant="rounded"
                     src={`${item.from.avatar}`}
-                    className="ml-14 mb-2"
+                    className="mx-2"
                 />
                {item.from.full_name}
             </TableCell>
             <TableCell align="left">{item.short_name}</TableCell>
             <TableCell align="left">{item.message.length > 12 ? item.message.slice(0, 10) + "..." : item.message}</TableCell>
-            <TableCell align="left">{item.date || "12.09"}</TableCell>
+            <TableCell align="left">{item.checked ? <div className="text-green">✓✓</div> : <div  className="text-yellow">✓</div>}</TableCell>
+            <TableCell align="left">{date}</TableCell>
+            <TableCell align="left">
+                <Checkbox
+                    color="primary"
+                    onClick={(event) => handleClick(event, item._id)}
+                    checked={item.favourite}
+                    inputProps={{
+                        'aria-labelledby': labelId,
+                    }}
+                    icon={<StarBorderIcon />}
+                    checkedIcon={<GradeIcon className="text-yellow" />}
+                />
+            </TableCell>
         </TableRow>
     );
 };

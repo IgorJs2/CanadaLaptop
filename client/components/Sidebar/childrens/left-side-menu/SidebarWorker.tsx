@@ -21,7 +21,7 @@ const SidebarWorker = () => {
                     <ul className={classes("sub-menu") + " submenu_list"}>
                         <li><a className={classes("link_name")} href="">Application</a></li>
                         <li><Link href="/main/other/application/editor">Editor</Link></li>
-                        <li><Link href="/main/other/application/mailbox">Mail Box</Link></li>
+                        <li><Link href="/main/other/application/mailbox/index">Mail Box</Link></li>
                         <li><Link href="/main/other/application/chat">Chat</Link></li>
                         <li><Link href="/main/other/application/faq">FAQ</Link></li>
                     </ul>
@@ -60,8 +60,8 @@ const SidebarWorker = () => {
                     </div>
                     <ul className={classes("sub-menu") + " submenu_list"}>
                         <li><a className={classes("link_name")} href="">Inventory</a></li>
-                        <li><Link href="inventory" className={classes("link_name")}>Find Unique</Link></li>
-                        <li><Link href="laptops" className={classes("link_name")}>Laptops</Link></li>
+                        <li><Link href="/main/worker/inventory" className={classes("link_name")}>Find Unique</Link></li>
+                        <li><Link href="/main/worker/laptops" className={classes("link_name")}>Laptops</Link></li>
                     </ul>
                 </li>
                 <li>
@@ -74,7 +74,7 @@ const SidebarWorker = () => {
                     </div>
                     <ul className={classes("sub-menu") + " submenu_list"}>
                         <li><a className={classes("link_name")} href="">Models</a></li>
-                        <li><Link href="laptopmodels" className={classes("link_name")}>Laptops</Link></li>
+                        <li><Link href="/main/worker/laptopmodels" className={classes("link_name")}>Laptops</Link></li>
                     </ul>
                 </li>
             </ul>

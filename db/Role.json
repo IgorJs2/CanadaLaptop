@@ -1,0 +1,8 @@
+[{"_id":{"$oid":"634f3f85fc13ae1744000021"},"name":"Default_Worker","_permissions":["634f3fc0fc13ae174b00000e", "6350b0ddb5029d9fea593f20"],"active":false},
+  {"_id":{"$oid":"634f3f85fc13ae1744000027"},"name":"Default_Seller","_permissions":["634f3fc0fc13ae174b00000f", "6350b0ddb5029d9fea593f20"],"active":false},
+  {"_id":{"$oid":"634f3f85fc13ae1744000028"},"name":"Default_Admin","_permissions":["634f3fc0fc13ae174b00000b", "634f3fc0fc13ae174b00000c", "634f3fc0fc13ae174b000012", "634f3fc0fc13ae174b000011", "634f3fc0fc13ae174b000010", "6350b0ddb5029d9fea593f20"],"active":true},
+{"_id":{"$oid":"634f3f85fc13ae1744000022"},"name":"Advanced seller","_permissions":["634f3fc0fc13ae174b00000e", "6350b0ddb5029d9fea593f20", "634f3fc0fc13ae174b00000e"],"active":true},
+{"_id":{"$oid":"634f3f85fc13ae1744000023"},"name":"Advanced worker","_permissions":["634f3fc0fc13ae174b00000f", "6350b0ddb5029d9fea593f20", "634f3fc0fc13ae174b00000f"],"active":true},
+{"_id":{"$oid":"634f3f85fc13ae1744000024"},"name":"Short seller","_permissions":["634f3fc0fc13ae174b00000f"],"active":true},
+{"_id":{"$oid":"634f3f85fc13ae1744000025"},"name":"Short worker","_permissions":["634f3fc0fc13ae174b00000e"],"active":false},
+{"_id":{"$oid":"634f3f85fc13ae1744000026"},"name":"Short Admin","_permissions":["634f3fc0fc13ae174b00000b", "634f3fc0fc13ae174b00000c", "634f3fc0fc13ae174b000012", "6350b0ddb5029d9fea593f20"],"active":false}]

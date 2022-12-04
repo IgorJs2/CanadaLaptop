@@ -21,7 +21,7 @@ const SidebarWorker = () => {
                     <ul className={classes("sub-menu") + " submenu_list"}>
                         <li><a className={classes("link_name")} href="">Application</a></li>
                         <li><Link href="/main/other/application/editor">Editor</Link></li>
-                        <li><Link href="/main/other/application/mailbox">Mail Box</Link></li>
+                        <li><Link href="/main/other/application/mailbox/index">Mail Box</Link></li>
                         <li><Link href="/main/other/application/chat">Chat</Link></li>
                         <li><Link href="/main/other/application/faq">FAQ</Link></li>
                     </ul>

@@ -1,5 +1,3 @@
-import {TItemStatus} from "./subtypes/TItemStatus";
-import {ILaptopModel} from "./laptopmodel";
 
 export interface ILaptop {
     _id: string
@@ -21,7 +19,7 @@ export interface ILaptop {
     _createdAt: string,
 }
 
-export function isAnLaptop(obj: any): obj is ILaptopModel {
+export function isAnLaptop(obj: any): obj is ILaptop {
     return'_id' in obj &&
         'searchID' in obj &&
         'img' in obj &&

@@ -22,6 +22,24 @@ export class LaptopController {
         return data
     }
 
+    @UseGuards(JwtAuthGuard)
+    @Types("Admin", "Worker", "Seller")
+    @UseGuards(TypesGuard)
+    @Get("by_id")
+    async getLaptopsById (@Query("id_array") id_array: string[]) {
+        const response = await this.LaptopService.getLaptopsById(id_array)
+        return response
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Types("Admin", "Worker", "Seller")
+    @UseGuards(TypesGuard)
+    @Get("list")
+    async getLaptopList (@Query("filter") filter: string) {
+        const response = await this.LaptopService.getLaptopList(filter)
+        return response
+    }
+
     @Types("Admin", "Worker", "Seller")
     @UseGuards(TypesGuard)
     @Get("/filtered/")

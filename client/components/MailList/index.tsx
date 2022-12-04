@@ -6,6 +6,7 @@ import {wrapper} from "../../store";
 import {getCookie} from "cookies-next";
 import {fetchCurrentUser} from "../../store/action-creators/user";
 import {fetchMail} from "../../store/action-creators/mail";
+import {item_types} from "../../constants/global_const";
 
 const Index = () => {
     return (
@@ -27,36 +28,10 @@ const Index = () => {
                 </div>
             </div>
             <div className="w-full flex flex-row ">
-                {/*<CustomTable  item_type={}/>*/}
+                <CustomTable  item_type={item_types.Mail}/>
             </div>
         </div>
     );
 };
 
 export default Index;
-
-export const getServerSideProps = wrapper.getServerSideProps((store: any) => async ({req, res}) => {
-    try {
-        // @ts-ignore
-        const token = getCookie("token", {req, res}) ? JSON.parse(getCookie("token", {req, res})?.toString()) : null
-
-        if (!token) {
-            return {
-                redirect: {
-                    permanent: false,
-                    destination: "/"
-                }
-            }
-        }
-
-        await store.dispatch(fetchCurrentUser(token))
-
-        await store.dispatch(fetchMail(token))
-
-        return {props: {}}
-    } catch (e) {
-        return {props: {}}
-        console.log(e)
-    }
-
-});

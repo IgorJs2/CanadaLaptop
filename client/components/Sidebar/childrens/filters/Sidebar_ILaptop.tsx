@@ -42,7 +42,7 @@ export type ILaptopFilterData = {
     _createdAt: string,
 }
 
-export const initialLaptopFilterData = {
+export const initialLaptopFilterData: ILaptopFilterData = {
     search: "",
     searchID: "",
     model: "",

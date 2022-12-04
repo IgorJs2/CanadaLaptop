@@ -10,13 +10,14 @@ import {
 import MainLayouts from "../../../../../layouts/MainLayout";
 import {Button, Typography} from "@mui/material";
 import {useTypeSelector} from "../../../../../hooks/useTypeSelector";
-import LaptopEditForm, {ILaptopModelEditData} from "../../../../../components/Forms/childrens/laptopmodel/edit-form";
+import LaptopModelEditForm, {ILaptopModelEditData} from "../../../../../components/Forms/childrens/laptopmodel/edit-form";
 import EditListModal from "../../../../../components/Modal/EditItemList";
 import {ILaptopModelFilterData} from "../../../../../components/Sidebar/childrens/filters/Sidebar_ILaptopModel";
 import {useAction} from "../../../../../hooks/useAction";
 import {ILaptopModel} from "../../../../../types/laptopmodel";
 import {useRouter} from "next/router";
 import AcceptCancelModal from "../../../../../components/Modal/DialogModal/accept_cancel_Modal";
+import {item_types} from "../../../../../constants/global_const";
 
 const Index = () => {
 
@@ -70,9 +71,9 @@ const Index = () => {
     return (
         <MainLayouts active={1}>
             <AcceptCancelModal  callback={() => submitEditHandler(true)} change_text={"submit editing when your not have all items submitted?"} onClick={() => setVisibleAcceptCancel(false)} visible={visibleAcceptCancel}/>
-            <EditListModal visible={visibleEditList} onClick={() => setVisibleEditList(false)} type={"LaptopModel"} checked={checked}
+            <EditListModal visible={visibleEditList} onClick={() => setVisibleEditList(false)} type={item_types.LaptopModel} checked={checked}
                            setChecked={setChecked}/>
-            <div className="w-full h-full my-10 mx-auto flex flex-row ml-36 mt-48 ">
+            <div className="centralized_block ">
                 <div className="w-11/12 bg-main-dark h-fit min-h-48 rounded-box mr-5 rounded-2xl ">
                     <Typography variant="h5" gutterBottom component="h2" className="w-11/12 mx-auto my-4">
                         Edit laptopmodel
@@ -88,7 +89,7 @@ const Index = () => {
                         const isSubmited = submited.indexOf(item._id) > -1
 
                         return (
-                            <LaptopEditForm key={item._id} item={item} submited={isSubmited}
+                            <LaptopModelEditForm key={item._id} item={item} submited={isSubmited}
                                             submitHandler={submitHandler} deleteHandler={deleteHandler}
                                             cancelSubmitHandler={cancelSubmitHandler}/>
                         )

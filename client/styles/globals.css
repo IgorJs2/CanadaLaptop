@@ -25,6 +25,120 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.w-7\.5\/12 {
+    width: 63%;
+}
+
+.centralized_block{
+    @apply w-full h-full my-10 mx-auto flex flex-row ml-36 mt-48;
+}
+
+.centralized_table_block{
+    @apply w-11.5/12 ml-20  h-full overflow-x-hidden;
+}
+
+.second_block {
+    @apply w-8/12 h-fit bg-main-dark rounded-2xl;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) and (orientation: landscape){
+    .centralized_block{
+        @apply w-full h-full my-10 mx-auto flex flex-row ml-24 mt-48;
+    }
+    .centralized_table_block{
+        @apply w-11.5/12 ml-16  h-full overflow-x-hidden;
+    }
+    .second_block {
+        @apply h-fit bg-main-dark rounded-2xl;
+        width: 63%;
+    }
+}
+
+@media screen and (min-width: 880px) and (max-width: 1199px) {
+    .centralized_block{
+        @apply w-11/12 h-full my-10 mx-auto flex flex-row ml-32 mt-48;
+    }
+    .centralized_table_block{
+        @apply w-11.5/12 ml-12  h-full overflow-x-hidden;
+    }
+    .second_block {
+        @apply w-6/12 h-fit bg-main-dark rounded-2xl;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 879px) {
+    .centralized_block{
+        @apply w-11/12 h-full my-10 mx-auto flex flex-row ml-24 mt-48;
+    }
+    .centralized_table_block{
+        @apply w-11/12 ml-16  h-full overflow-x-hidden;
+    }
+    .second_block {
+        @apply w-6/12 h-fit bg-main-dark rounded-2xl;
+    }
+}
+
+.ck.ck-editor {
+    outline: none !important;
+}
+
+.ck.ck-editor {
+    position:relative;
+    width: 91% !important;
+    margin: auto !important;
+    background-color: #1d1b31 !important;
+}
+
+.ck-icon{
+    color: white !important;
+}
+
+a.ck.ck-button {
+    color: red !important;
+}
+.ck.ck-button:not(.ck-disabled):hover,
+a.ck.ck-button:not(.ck-disabled):hover {
+    background: #444C53 !important;}
+
+.ck.ck-button:not(.ck-disabled):active,
+a.ck.ck-button:not(.ck-disabled):active {
+    background: #444C53 !important;
+}
+
+.ck.ck-button:not(.ck-disabled):active,
+a.ck.ck-button:not(.ck-disabled):active {
+    background: #444C53 !important;
+}
+
+.ck.ck-button.ck-on,
+a.ck.ck-button.ck-on {
+    background: #444C53 !important;}
+.ck.ck-button.ck-on:not(.ck-disabled):hover,
+a.ck.ck-button.ck-on:not(.ck-disabled):hover {
+    background: #444C53 !important;}
+/*.ck.ck-button.ck-on:not(.ck-disabled):active,*/
+/*a.ck.ck-button.ck-on:not(.ck-disabled):active {*/
+/*    background: #444C53 !important;}*/
+
+.ck-button__label{
+    color: white !important;
+}
+
+
+.ck-toolbar{
+    background-color: #414142 !important;
+}
+
+.ck-editor__editable {
+    min-height: 500px;
+    background-color: #414142 !important;
+}
+
+.ck-editor__editable p {
+    color: white !important;
+}
+
 .navbar {
     width: 100%;
     background-color: #f1f7ee;

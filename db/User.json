@@ -1,0 +1,92 @@
+[
+  {
+    "_id": {
+      "$oid": "634dd919fc13ae3eb10002a7"
+    },
+    "login": "Corabel",
+    "full_name": "Saill",
+    "type": "Admin",
+    "avatar": "https://robohash.org/inquasincidunt.png?size=50x50&set=set1",
+    "email": "csaill0@sciencedirect.com",
+    "password": "$2b$04$H0Nn492oQ8yZudykz74Tqu0sIqDmuN2IHdAQC.TfvgDN0R0ljFFvO",
+    "mobile": "439-912-1569",
+    "_role": ["634f3f85fc13ae1744000028"],
+    "_time": [],
+    "_logs": []
+  },
+  {
+    "_id": {
+      "$oid": "634dd919fc13ae3eb10002a8"
+    },
+    "login": "Sherman",
+    "full_name": "Gerrietz",
+    "type": "Seller",
+    "avatar": "https://robohash.org/modidolornihil.png?size=50x50&set=set1",
+    "email": "sgerrietz1@tiny.cc",
+    "password": "$2b$04$H0Nn492oQ8yZudykz74Tqu0sIqDmuN2IHdAQC.TfvgDN0R0ljFFvO",
+    "mobile": "855-758-4967",
+    "_role": ["634f3f85fc13ae1744000027"],
+    "_time": [],
+    "_logs": []
+  },
+  {
+    "_id": {
+      "$oid": "634dd919fc13ae3eb10002a9"
+    },
+    "login": "Noemi",
+    "full_name": "Handrahan",
+    "type": "Worker",
+    "avatar": "https://robohash.org/eosvoluptatumanimi.png?size=50x50&set=set1",
+    "email": "nhandrahan2@icio.us",
+    "password": "$2b$04$H0Nn492oQ8yZudykz74Tqu0sIqDmuN2IHdAQC.TfvgDN0R0ljFFvO",
+    "mobile": "458-331-4734",
+    "_role": ["634f3f85fc13ae1744000021"],
+    "_time": [],
+    "_logs": []
+  },
+  {
+    "_id": {
+      "$oid": "634dd919fc13ae3eb10002aa"
+    },
+    "login": "Kym",
+    "full_name": "Peperell",
+    "type": "Tech. Admin",
+    "avatar": "https://robohash.org/quivoluptatibusexpedita.png?size=50x50&set=set1",
+    "email": "kpeperell3@springer.com",
+    "password": "$2b$04$H0Nn492oQ8yZudykz74Tqu0sIqDmuN2IHdAQC.TfvgDN0R0ljFFvO",
+    "mobile": "784-181-2069",
+    "_role": [],
+    "_time": [],
+    "_logs": []
+  },
+  {
+    "_id": {
+      "$oid": "634dd919fc13ae3eb10002ab"
+    },
+    "login": "Caryn",
+    "full_name": "Franchioni",
+    "type": "Admin",
+    "avatar": "https://robohash.org/aperiamcommodiest.png?size=50x50&set=set1",
+    "email": "cfranchioni4@yolasite.com",
+    "password": "$2b$04$H0Nn492oQ8yZudykz74Tqu0sIqDmuN2IHdAQC.TfvgDN0R0ljFFvO",
+    "mobile": "564-274-0182",
+    "_role": ["634f3f85fc13ae1744000028"],
+    "_time": [],
+    "_logs": []
+  },
+  {
+    "_id": {
+      "$oid": "634dd919fc13ae3eb10002ac"
+    },
+    "login": "Rycca",
+    "full_name": "Kolczynski",
+    "type": "Seller",
+    "avatar": "https://robohash.org/temporibusnonquia.png?size=50x50&set=set1",
+    "email": "rkolczynski5@hhs.gov",
+    "password": "$2b$04$H0Nn492oQ8yZudykz74Tqu0sIqDmuN2IHdAQC.TfvgDN0R0ljFFvO",
+    "mobile": "471-616-5372",
+    "_role": ["634f3f85fc13ae1744000027"],
+    "_time": [],
+    "_logs": []
+  }
+]

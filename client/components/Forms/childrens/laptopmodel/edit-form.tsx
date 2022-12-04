@@ -50,7 +50,7 @@ const initialInputProps: IInputProps = {
     disable: false
 }
 
-const LaptopEditForm: FC<IEditFormProps> = ({item, submited, submitHandler, deleteHandler, cancelSubmitHandler}) => {
+const LaptopModelEditForm: FC<IEditFormProps> = ({item, submited, submitHandler, deleteHandler, cancelSubmitHandler}) => {
 
     const [form, setForm] = useState<ILaptopModelEditData>(initialFormState)
     const [inputProps, setInputProps] = useState<IInputProps>(initialInputProps)
@@ -265,4 +265,4 @@ const LaptopEditForm: FC<IEditFormProps> = ({item, submited, submitHandler, dele
     );
 };
 
-export default LaptopEditForm;
+export default LaptopModelEditForm;

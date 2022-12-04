@@ -1,7 +1,9 @@
+import {IPermission} from "./permission";
+
 export interface IRole {
     _id: string,
     name: string,
-    _permissions: string[],
+    _permissions: IPermission[],
     active: boolean
 }
 

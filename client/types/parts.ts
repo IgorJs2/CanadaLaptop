@@ -1,5 +1,3 @@
-import {TItemStatus} from "./subtypes/TItemStatus";
-import {ILaptopModel} from "./laptopmodel";
 
 export interface IParts {
     _id: string,
@@ -19,7 +17,7 @@ export interface IParts {
     _createdAt: string,
 }
 
-export function isAnPart(obj: any): obj is ILaptopModel {
+export function isAnPart(obj: any): obj is IParts {
     return'_id' in obj &&
         'searchID' in obj &&
         'img' in obj &&
@@ -37,9 +35,16 @@ export function isAnPart(obj: any): obj is ILaptopModel {
         '_createdAt' in obj
 }
 
+export interface IPartListItem{
+    _id: string,
+    searchID: string,
+    name: string,
+}
+
 export interface PartsState {
     PartInfo: IParts;
     Parts: IParts[];
+    PartList: IPartListItem[]
     NeedReturnParts: IParts[];
     error: string;
 }
@@ -47,6 +52,7 @@ export interface PartsState {
 export enum PartsActionTypes {
     FETCH_PARTS = 'FETCH_PARTS',
     FETCH_PART_INFO = "FETCH_PART_INFO",
+    FETCH_PART_LIST_ITEMS = 'FETCH_PART_LIST_ITEMS',
     FETCH_NEEDRETURNPARTS = 'FETCH_NEEDRETURNPARTS',
     FETCH_PARTS_ERROR = 'FETCH_PARTS_ERROR',
 }
@@ -61,6 +67,11 @@ interface FetchPartInfoAction {
     payload: IParts
 }
 
+interface FetchPartListItemsAction {
+    type: PartsActionTypes.FETCH_PART_LIST_ITEMS
+    payload: IPartListItem[]
+}
+
 interface FetchNeedReturnPartsAction {
     type: PartsActionTypes.FETCH_NEEDRETURNPARTS;
     payload: IParts & {field: string}
@@ -71,4 +82,4 @@ interface FetchPartsErrorAction {
     payload: string
 }
 
-export type PartsAction = FetchPartsAction | FetchPartInfoAction | FetchPartsErrorAction | FetchNeedReturnPartsAction
+export type PartsAction = FetchPartsAction | FetchPartListItemsAction | FetchPartInfoAction | FetchPartsErrorAction | FetchNeedReturnPartsAction

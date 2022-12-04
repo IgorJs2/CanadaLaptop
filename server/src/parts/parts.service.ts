@@ -4,6 +4,7 @@ import {Model} from "mongoose";
 import {CreatePartsDto} from "./dto/create-parts.dto";
 import {PartModel} from "../_types/part/part";
 import {clearFilterObject} from "../laptopmodels/helpers/clearFilterObject";
+import {LaptopmodelListItem, LaptopmodelModel} from "../_types/laptopmodel/laptopmodel";
 
 
 
@@ -22,6 +23,30 @@ export class PartsService {
         } catch (e) {
             console.log(e)
             return "Error when try to get Partss please try again!"
+        }
+    }
+
+    async getPartsById(id_array: string[]): Promise<PartModel[] | string> {
+        try {
+            const Parts = await this.Part.find({ _id : { $in : id_array } })
+            return Parts
+        } catch
+            (e) {
+            console.log(e)
+            return "Error when try to get filtered Parts please try again!"
+        }
+    }
+
+    async getPartList(filters): Promise<PartModel[] | string> {
+        try {
+            const parsed_filters = JSON.parse(filters)
+            const filter = await clearFilterObject({...parsed_filters})
+            const Parts = await this.Part.find(filter).select({_id: 1, searchID: 1, title: 1})
+            return Parts
+        } catch
+            (e) {
+            console.log(e)
+            return "Error when try to get filtered Parts please try again!"
         }
     }
 

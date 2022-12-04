@@ -244,10 +244,10 @@ export const MailsCells: readonly MailsHeadCell[] = [
         label: 'Name',
     },
     {
-        id: 'status',
+        id: 'title',
         numeric: false,
         disablePadding: true,
-        label: 'Status',
+        label: 'Title',
     },
     {
         id: 'details',
@@ -256,10 +256,22 @@ export const MailsCells: readonly MailsHeadCell[] = [
         label: 'Details',
     },
     {
+        id: 'status',
+        numeric: false,
+        disablePadding: true,
+        label: 'Status',
+    },
+    {
         id: 'date',
         numeric: false,
         disablePadding: true,
         label: 'Date',
+    },
+    {
+        id: '_favourite',
+        numeric: false,
+        disablePadding: true,
+        label: 'Favourite',
     },
 ];
 

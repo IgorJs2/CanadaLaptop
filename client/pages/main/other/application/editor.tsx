@@ -5,6 +5,11 @@ import {wrapper} from "../../../../store";
 import {getCookie} from "cookies-next";
 import {fetchCurrentUser} from "../../../../store/action-creators/user";
 import dynamic from "next/dynamic";
+import AcceptCancelModal from "../../../../components/Modal/DialogModal/accept_cancel_Modal";
+import EditListModal from "../../../../components/Modal/EditItemList";
+import {item_types} from "../../../../constants/global_const";
+import {Button, Typography} from "@mui/material";
+import LaptopModelEditForm from "../../../../components/Forms/childrens/laptopmodel/edit-form";
 
 
 const DynamicEditor = dynamic(() => import("../../../../components/Editor/index"), {
@@ -18,8 +23,12 @@ const Editor = () => {
     return (
         <>
             <MainLayouts active={1}>
-                <div className="w-full h-full my-10 mx-auto flex flex-row ml-36 mt-48">
-                    <div className="w-11/12 bg-main-dark min-h-48 rounded-2xl mr-5 p-4 h-fit">
+                <div className="centralized_block ">
+                    <div className="w-11/12 bg-main-dark h-fit min-h-48 rounded-box mr-5 rounded-2xl ">
+                        <Typography variant="h5" gutterBottom component="h2" className="w-11/12 mx-auto my-4">
+                            Editor
+                        </Typography>
+                        <hr className="w-11/12 mx-auto mb-10"/>
                         <Suspense fallback={`Loading...`}>
                             <DynamicEditor />
                         </Suspense>

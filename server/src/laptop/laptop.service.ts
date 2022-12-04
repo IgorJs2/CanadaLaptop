@@ -5,6 +5,7 @@ import {CreateLaptopDto} from "./dto/create-Laptop.dto";
 import {LaptopModel} from "../_types/laptop/laptop";
 import {clearFilterObject} from "../laptopmodels/helpers/clearFilterObject";
 import {Laptop} from "../_schemas/laptop/laptop.schema";
+import {LaptopmodelListItem, LaptopmodelModel} from "../_types/laptopmodel/laptopmodel";
 
 @Injectable()
 export class LaptopService {
@@ -20,6 +21,30 @@ export class LaptopService {
             return Laptops
         } catch (e) {
             return "Error when try to get Laptops please try again!"
+        }
+    }
+
+    async getLaptopsById(id_array: string[]): Promise<LaptopModel[] | string> {
+        try {
+            const Laptops = await this.LaptopModel.find({ _id : { $in : id_array } })
+            return Laptops
+        } catch
+            (e) {
+            console.log(e)
+            return "Error when try to get filtered Laptops please try again!"
+        }
+    }
+
+    async getLaptopList(filters): Promise<LaptopModel[] | string> {
+        try {
+            const parsed_filters = JSON.parse(filters)
+            const filter = await clearFilterObject({...parsed_filters})
+            const Laptops = await this.LaptopModel.find(filter).select({_id: 1, searchID: 1, title: 1})
+            return Laptops
+        } catch
+            (e) {
+            console.log(e)
+            return "Error when try to get filtered Laptops please try again!"
         }
     }
 

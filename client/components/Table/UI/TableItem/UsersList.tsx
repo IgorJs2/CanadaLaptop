@@ -16,6 +16,7 @@ interface IUsersItem {
 
 const UsersItem: FC<IUsersItem> = ({handleClick, isItemSelected, item, labelId}) => {
 
+    const time_count = (item._time[0] ? item._time.reduce((e) => e) : 0)
 
     // @ts-ignore
     return (
@@ -53,8 +54,8 @@ const UsersItem: FC<IUsersItem> = ({handleClick, isItemSelected, item, labelId})
             <TableCell align="left">{item.email}</TableCell>
             <TableCell align="left">{item.mobile}</TableCell>
             <TableCell align="left">{item.type}</TableCell>
-            {/*<TableCell align="left">{item._role.name}</TableCell>*/}
-            <TableCell align="left">{item._time}</TableCell>
+            <TableCell align="left">{item._role?.name || ""}</TableCell>
+            <TableCell align="left">{time_count}</TableCell>
         </TableRow>
     );
 };

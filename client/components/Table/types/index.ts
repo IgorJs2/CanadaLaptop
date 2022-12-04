@@ -60,8 +60,9 @@ interface LaptopsTableData extends ILaptop{}
 
 interface MailsTableData {
     name: string,
-    status: string,
+    title: string,
     details: string,
+    status: string,
     date: string
 }
 
@@ -124,7 +125,7 @@ interface LaptopsHeadCell extends IBaseHeadCell{
 
 
 interface MailsHeadCell extends IBaseHeadCell{
-    id: keyof MailsTableData;
+    id: keyof MailsTableData | "_favourite";
 }
 
 interface LaptopModelsHeadCell extends IBaseHeadCell{

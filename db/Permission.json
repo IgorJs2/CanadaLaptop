@@ -1,0 +1,11 @@
+[{"_id":{"$oid":"634f3fc0fc13ae174b00000b"},"permission":"View all tables","active":false},
+{"_id":{"$oid":"634f3fc0fc13ae174b00000c"},"permission":"Edit all objects","active":false},
+{"_id":{"$oid":"634f3fc0fc13ae174b00000d"},"permission":"All permitted","active":true},
+{"_id":{"$oid":"634f3fc0fc13ae174b00000e"},"permission":"View worker tables","active":true},
+{"_id":{"$oid":"634f3fc0fc13ae174b00000f"},"permission":"View seller tables","active":true},
+{"_id":{"$oid":"634f3fc0fc13ae174b000010"},"permission":"Manage roles","active":true},
+{"_id":{"$oid":"634f3fc0fc13ae174b000011"},"permission":"Manage permissions","active":false},
+{"_id":{"$oid":"634f3fc0fc13ae174b000012"},"permission":"Manage users","active":false},
+{"_id":{"$oid":"634f3fc0fc13ae174b000013"},"permission":"View all users","active":false},
+  {"_id":{"$oid":"6350b0ddb5029d9fea593f20"},"permission":"Edit type data","active":true},
+]

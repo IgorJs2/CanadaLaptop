@@ -25,6 +25,7 @@ import { InvoiceModule } from './invoice/invoice.module';
 import {PartModelSchema} from "./_schemas/part/part.schema";
 import {UserModelSchema} from "./_schemas/user/user.schema";
 import {UserModel} from "./_types/user/user";
+import * as process from "process";
 
 
 require('dotenv').config()
@@ -33,16 +34,8 @@ require('dotenv').config()
 @Module({
     imports: [
         ServeStaticModule.forRoot({rootPath: path.join(__dirname, "static")}),
-        // MongooseModule.forFeature([
-        //     {
-        //         name: 'user',
-        //         schema: UserModelSchema,
-        //         collection: 'users',
-        //
-        //     },
-        // ],'MainDb'),
         MongooseModule.forRoot(
-            'mongodb://localhost:27017/canadanotebooks',
+            (process.env.MONGO_URI + '/canadanotebooks'),
             {
                 dbName: "canadanotebooks",
                 connectionName: 'MainDb',

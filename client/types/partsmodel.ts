@@ -1,4 +1,3 @@
-import {ILaptopModel} from "./laptopmodel";
 
 export interface IPartModel {
     _id: string,
@@ -12,7 +11,7 @@ export interface IPartModel {
     mpn: string,
 }
 
-export function isAnPartModel(obj: any): obj is ILaptopModel {
+export function isAnPartModel(obj: any): obj is IPartModel {
     return'_id' in obj &&
         'searchID' in obj &&
         'name' in obj &&
@@ -24,9 +23,15 @@ export function isAnPartModel(obj: any): obj is ILaptopModel {
         'mpn' in obj
 }
 
+export interface IPartModelListItem{
+    _id: string,
+    searchID: string,
+    name: string,
+}
 
 export interface PartModelState {
     PartModels: IPartModel[];
+    PartModelsList: IPartModelListItem[],
     PartModelInfo: IPartModel;
     error: string;
 }
@@ -34,6 +39,7 @@ export interface PartModelState {
 export enum PartModelActionTypes {
     FETCH_PARTMODEL_INFO = 'FETCH_PARTMODEL_INFO',
     FETCH_PARTMODELS = 'FETCH_PARTMODELS',
+    FETCH_PARTMODEL_LIST_ITEMS = 'FETCH_PARTMODEL_LIST_ITEMS',
     FETCH_PARTMODEL_ERROR = 'FETCH_PARTMODEL_ERROR',
 }
 
@@ -47,9 +53,14 @@ interface FetchPartModelsAction {
     payload: IPartModel[]
 }
 
+interface FetchPartModelsListAction {
+    type: PartModelActionTypes.FETCH_PARTMODEL_LIST_ITEMS
+    payload: IPartModelListItem[]
+}
+
 interface FetchPartModelErrorAction {
     type: PartModelActionTypes.FETCH_PARTMODEL_ERROR;
     payload: string
 }
 
-export type PartModelAction = FetchPartModelInfoAction | FetchPartModelErrorAction | FetchPartModelsAction
+export type PartModelAction = FetchPartModelInfoAction | FetchPartModelErrorAction | FetchPartModelsAction | FetchPartModelsListAction

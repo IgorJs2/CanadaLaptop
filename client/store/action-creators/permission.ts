@@ -10,8 +10,8 @@ export const fetchPermission = (token: string) => {
                     "Authorization": "Bearer" + " " + token
                 }
             };
-            const response = await axios.get('http://localhost:5000/.../profile', config)
-            dispatch({type: PermissionActionTypes.FETCH_PERMISSION, payload: response.data})
+            const response = await axios.get('http://localhost:5000/permission', config)
+            dispatch({type: PermissionActionTypes.FETCH_PERMISSIONS, payload: response.data})
         } catch (e) {
             dispatch({
                 type: PermissionActionTypes.FETCH_PERMISSION_ERROR,

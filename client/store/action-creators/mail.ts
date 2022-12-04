@@ -12,11 +12,13 @@ export const fetchMail = (token: string) => {
                 },
             };
             const response = await axios.get('http://localhost:5000/mail/user', config)
-            dispatch({type: MailActionTypes.FETCH_MAIL, payload: response.data})
+            console.log(response.data)
+            dispatch({type: MailActionTypes.FETCH_MAILS, payload: response.data})
         } catch (e) {
+            console.log(e)
             dispatch({
                 type: MailActionTypes.FETCH_MAIL_ERROR,
-                payload: 'Произошла ошибка при получении mail'})
+                payload: e.toString()})
         }
     }
 }

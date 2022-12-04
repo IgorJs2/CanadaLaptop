@@ -15,7 +15,8 @@ export class OrderService {
 
     async get_orders(): Promise<OrderModel[] | string>  {
         try {
-            const data = await this.OrderModel.find().populate({path: "createdByUserId", select: {full_name: 1, _id: 1}}).populate({path: "laptop_id part_id", select: {searchID: 1, _id: 0}})
+            const data = await this.OrderModel.find().populate({path: "createdByUserId", select: {full_name: 1, _id: 1}})
+                                                    .populate({path: "laptop_id part_id", select: {searchID: 1, _id: 0}})
             return data
         } catch (e) {
             console.log(e)
